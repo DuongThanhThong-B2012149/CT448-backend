@@ -7,7 +7,11 @@ router
   .get(contactControllers.findAll)
   .post(contactControllers.create)
   .delete(contactControllers.deleteAll);
-router.route("/favorite").get();
-router.route("/:id").get().put().delete();
+router.route("/favorite").get(contactControllers.findAllFavorite);
+router
+  .route("/:id")
+  .get(contactControllers.findOne)
+  .put(contactControllers.update)
+  .delete(contactControllers.delete);
 
 module.exports = router;
